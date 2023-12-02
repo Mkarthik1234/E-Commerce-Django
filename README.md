@@ -6,6 +6,7 @@ The system is implemented using Python’s web framework Django. Skills Used in 
 
 
 To run the server : python manage.py runserver
+
 To create a new admin : python manage.py createsuperuser
 
 

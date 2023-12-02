@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login form</title>
+   <style>
+      body {
+         background-color: #F6F7FB;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 16px;
+      }
+      form {
+         max-width: 400px;
+         margin: 0 auto;
+         background-color: #fff;
+         padding: 40px;
+         border-radius: 10px;
+         box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      }
+      h2 {
+         font-weight: bold;
+         font-size: 24px;
+         margin-bottom: 20px;
+         color: #333;
+      }
+      input[type=text], input[type=password] {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+      }
+      input[type=submit] {
+         background-color: #4CAF50;
+         color: white;
+         padding: 12px 20px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         width: 100%;
+      }
+      input[type=submit]:hover {
+         background-color: #45a049;
+      }
+      button {
+         background-color: #fff;
+         color: #333;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         text-decoration: underline;
+         margin-top: 20px;
+      }
+      button:hover {
+         color: #45a049;
+      }
+      .error {
+         color: red;
+         font-size: 16px;
+         margin-top: 10px;
+      }
+   </style>
+</head>
+<body>
+   <form action="login" method="post">
+      {% csrf_token %}
+      <h2>Customer Login</h2>
+      <input type="text" name="username" placeholder="User name"><br><br>
+      <input type="password" name="password" placeholder="Password"><br><br>
+      <input type="submit"><br><br>
+      <button><a href="sellerlogin" style="font-size: 15px;">Are you a seller</a></button>
+      {% if value %}
+         <p class="error">Invalid login</p>
+      {%endif%}
+   </form>
+
+   <script>
+      // Add some interactivity to the login form
+      const form = document.querySelector('form');
+      const username = form.querySelector('input[name="username"]');
+      const password = form.querySelector('input[name="password"]');
+      const submitBtn = form.querySelector('input[type="submit"]');
+
+      submitBtn.addEventListener('click', (e) => {
+         e.preventDefault();
+         if (username.value === '' || password.value === '') {
+            alert('Please fill in all fields.');
+         } else {
+            form.submit();
+         }
+      });
+   </script>
+</body>
+</html>

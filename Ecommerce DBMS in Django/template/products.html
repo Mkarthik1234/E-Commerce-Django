@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Search Results</title>
+   <style>
+      body {
+         background-color: #f8f8f8;
+         font-family: Arial, sans-serif;
+      }
+      h3 {
+         margin-top: 30px;
+         font-size: 36px;
+         color: #0066cc;
+      }
+      table {
+         border-collapse: collapse;
+         margin: 0 auto;
+         margin-top: 30px;
+         width: 80%;
+         max-width: 800px;
+      }
+      th, td {
+         padding: 10px;
+         text-align: center;
+      }
+      th {
+         background-color: #0066cc;
+         color: #fff;
+         font-weight: bold;
+         text-transform: uppercase;
+      }
+      tr:nth-child(even) {
+         background-color: #f2f2f2;
+      }
+      span {
+         display: block;
+         margin-top: 10px;
+         font-size: 14px;
+         color: #666;
+      }
+   </style>
+</head>
+<body>
+   <center><h3>Search Results</h3></center>
+   <table>
+      <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Type</th>
+         <th>Description</th>
+         <th>Cost</th>
+         <th>Quantity Available</th>
+      </tr>
+   {% for product in products %}
+      <tr>
+         <td>{{product.id}}</td>
+         <td>{{product.name}}</td>
+         <td>{{product.type}}</td>
+         <td>{{product.description}}</td>
+         <td>{{product.cost}}</td>
+         <td>{{product.quantity}}</td>
+      </tr>
+      <tr>
+         <td colspan="6"><span>Product ID: {{product.id}}</span></td>
+      </tr>
+   {% endfor %}
+   </table>
+</body>
+</html>

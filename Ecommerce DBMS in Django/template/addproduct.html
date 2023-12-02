@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Registration Page</title>
+    <style>
+      body {
+        background-color: lightblue;
+        text-align: center;
+      }
+      form {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        text-align: left;
+        margin-right: 10px;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="number"],
+      textarea,
+      select {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 200px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Product Registration Page</h1>
+    <form action="add" method="post">
+      {% csrf_token %}
+      <label>Name:</label>
+      <input type="text" name="name" />
+      <br />
+      <label>Type:</label>
+      <input type="text" name="type" />
+      <br />
+      <label>Description:</label>
+      <br />
+      <textarea cols="60" rows="5" value="description" name="description"></textarea>
+      <br />
+      <label>Quantity:</label>
+      <select name="quantity">
+        <option placeholder="Select">Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <br />
+      <label>Cost:</label>
+      <input type="number" name="cost" />
+      <br />
+      <label>Seller:</label>
+      <select name="sellerid">
+        {% for i in user %}
+        <option value="{{i.id}}">{{i.name}}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

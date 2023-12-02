@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Account details</title>
+   <style>
+      body {
+         background-color: #f7f7f7;
+         font-family: Arial, sans-serif;
+      }
+      h3 {
+         font-weight: bold;
+         margin-top: 30px;
+      }
+      button {
+         background-color: #4CAF50;
+         border: none;
+         color: white;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-bottom: 20px;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+      table {
+         border-collapse: collapse;
+         margin: auto;
+         margin-bottom: 30px;
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+         border-radius: 5px;
+      }
+      th, td {
+         padding: 10px;
+         text-align: center;
+      }
+      th {
+         background-color: #4CAF50;
+         color: white;
+      }
+      tr:nth-child(even) {
+         background-color: #f2f2f2;
+      }
+      a {
+         color: white;
+         text-decoration: none;
+      }
+      button:hover {
+         background-color: #3e8e41;
+      }
+   </style>
+</head>
+<body align="center">
+   <h3>Account details</h3>
+   <button><a href="edit/{{user.id}}">Edit</a></button>
+   <table width="100%" border="1">
+      <tr>
+         <th>id</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Username</th>
+         <th>Email</th>
+         <th>Address</th>
+         <th>Mobile</th>	
+      </tr>
+      <tr>
+         <td>{{user.id}}</td>
+         <td>{{user.fname}}</td>
+         <td>{{user.lname}}</td>
+         <td>{{user.username}}</td>
+         <td>{{user.email}}</td>
+         <td>{{user.address}}</td>	
+         <td>{{user.mobile}}</td>
+      </tr>
+   </table>
+   <h3>Products purchased</h3>
+   <table width="50%" border="1">
+      <tr>
+         <th>Product ID</th>
+         <th>Cost</th>
+         <th>Quantity</th>
+      </tr>
+      {% for p in product %}
+      <tr>
+         <td>{{p.pid}}</td>
+         <td>{{p.cost}}</td>
+         <td>{{p.quantitywished}}</td>
+      </tr>
+      {% endfor %}
+   </table>
+   <script>
+      // add JavaScript code here if needed
+   </script>
+</body>
+</html>

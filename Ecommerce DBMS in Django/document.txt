@@ -1,0 +1,27 @@
+
+creating virtual enviornment
+>>python -m venv <name>
+
+activating virtual enviornment or get into virtual enviornment
+>>source env/Scripts/activate
+
+to get out from there
+>>deactivate 
+
+to get all the packages inside env
+>>pip freeze
+
+to install django
+>>pip install django
+
+to create a project
+>>django-admin startproject <project name>
+
+to run server
+>>python manage.py runserver
+>>python manage.py createapp
+>>python manage.py help
+
+create admin
+>>python manage.py createsuperuser
+
